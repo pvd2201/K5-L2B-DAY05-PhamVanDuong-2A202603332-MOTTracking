@@ -132,7 +132,7 @@ Dán phần tóm tắt in ra từ `src/check_submission.py`:
 
 1. Nếu được gán lại, bạn sẽ đặt keyframe khác ở đâu? Vì sao?
 
-   Nếu được gán lại, tôi sẽ bổ sung keyframe tại những khoảng thời gian có khoảng cách lớn giữa hai keyframe liên tiếp, ví dụ P5 ở khoảng frame 23–42.Lý do là khi khoảng cách giữa hai keyframe quá lớn, CVAT phải nội suy bounding box qua nhiều frame trung gian. Trong khi đó, người có thể di chuyển, đổi hướng hoặc thay đổi kích thước bounding box trong quá trình di chuyển.
+   Nếu được gán lại, tôi sẽ bổ sung keyframe tại P5 ở khoảng frame 23–42. Lý do: khi khoảng cách giữa hai keyframe quá lớn, CVAT phải nội suy box qua nhiều frame trung gian. Trong khi đó, người có thể di chuyển, đổi hướng hoặc thay đổi kích thước nên nội suy không còn đúng nữa.
 
 2. Có chỗ nào bạn không chắc "cùng ID hay ID mới"? Bạn đã quyết định và ghi chú thế nào?
 
@@ -140,7 +140,7 @@ Dán phần tóm tắt in ra từ `src/check_submission.py`:
 
 3. Một lỗi ID trong job của bạn (nếu không còn sót, chọn lỗi đã sửa) có thể làm xe tự lái dự đoán sai chuyển động của người đó như thế nào? Lỗi đó ảnh hưởng MOTA hay IDF1 nhiều hơn?
 
-   Một lỗi `id_switch` có thể khiến xe tự lái nhầm một người đi bộ đã được theo dõi trước đó thành một người mới khi người đó xuất hiện trở lại sau khi bị che khuất. Điều này làm gián đoạn quá trình theo dõi và có thể khiến hệ thống dự đoán sai quỹ đạo chuyển động, ảnh hưởng đến quyết định phanh hoặc tránh va chạm. Lỗi này ảnh hưởng đến cả MOTA và IDF1, nhưng IDF1 thường bị ảnh hưởng nhiều hơn vì chỉ số này tập trung đánh giá khả năng duy trì danh tính đối tượng qua các frame.
+   Một lỗi `id_switch` có thể khiến xe tự lái nhầm một người đi bộ đang theo dõi thành người khác khi người đó xuất hiện trở lại sau khi bị che khuất. Điều này làm gián đoạn quá trình theo dõi, khiến hệ thống dự đoán sai quỹ đạo chuyển động, ảnh hưởng đến quyết định phanh hoặc tránh va chạm. Lỗi này ảnh hưởng đến cả MOTA và IDF1, nhưng IDF1 thường bị ảnh hưởng nhiều hơn vì chỉ số này tập trung đánh giá khả năng duy trì danh tính đối tượng qua các frame.
 
 ## Bonus (nếu làm)
 
